@@ -15,6 +15,14 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->string('costs');
+            $table->string('clients_name');
+            $table->string('sales_date');
+            $table->foreing('serie_id')->references('serie_id')->on('series');
+            $table->foreing('game_id')->references('game_id')->on('games');
+            $table->foreing('movie_id')->references('movie_id')->on('movies');
+            $table->foreing('product_id')->references('product_id')->on('products');
+            $table->foreing('shipping_id')->references('shipping_id')->on('shippings');
             $table->timestamps();
         });
     }
